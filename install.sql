@@ -1,11 +1,11 @@
 -- ============================================================
 -- World Compass – E-Commerce Application
--- Base de données : ecommerce
+-- Base de données : world2784361
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS ecommerce
+CREATE DATABASE IF NOT EXISTS world2784361
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE ecommerce;
+USE world2784361;
 
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS order_items, orders, cart, reviews, products, categories, users, settings;

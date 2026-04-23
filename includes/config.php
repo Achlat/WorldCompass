@@ -4,11 +4,11 @@ define('SITE_URL',  rtrim(getenv('SITE_URL') ?: 'http://localhost/ecommerce', '/
 define('SITE_NAME', 'World Compass');
 define('CURRENCY',  'FCFA');
 
-//  Database (Railway injecte MYSQL_HOST, MYSQL_USER, etc.)
-define('DB_HOST', getenv('MYSQL_HOST')     ?: (getenv('DB_HOST') ?: 'localhost'));
-define('DB_USER', getenv('MYSQL_USER')     ?: (getenv('DB_USER') ?: 'root'));
-define('DB_PASS', getenv('MYSQL_PASSWORD') ?: (getenv('DB_PASS') ?: ''));
-define('DB_NAME', getenv('MYSQL_DATABASE') ?: (getenv('DB_NAME') ?: 'ecommerce'));
+//  Database
+define('DB_HOST', getenv('MYSQL_HOST')     ?: (getenv('DB_HOST') ?: '127.0.0.1'));
+define('DB_USER', getenv('MYSQL_USER')     ?: (getenv('DB_USER') ?: 'world2784361'));
+define('DB_PASS', getenv('MYSQL_PASSWORD') ?: (getenv('DB_PASS') ?: 'Achiraf123@'));
+define('DB_NAME', getenv('MYSQL_DATABASE') ?: (getenv('DB_NAME') ?: 'world2784361'));
 define('DB_PORT', (int)(getenv('MYSQL_PORT') ?: 3306));
 
 //  Session start
@@ -129,7 +129,7 @@ function db(): PDO {
             die('<div style="font-family:sans-serif;padding:2rem;background:#fee2e2;color:#991b1b;border-radius:8px;margin:2rem">
                 <h3> Erreur de connexion à la base de données</h3>
                 <p>'.$e->getMessage().'</p>
-                <p>Vérifiez que MySQL est démarré dans XAMPP et que la base <strong>ecommerce</strong> existe.<br>
+                <p>Vérifiez que MySQL est démarré et que la base <strong>world2784361</strong> existe.<br>
                 Exécutez le fichier <strong>install.sql</strong> pour créer la base.</p>
             </div>');
         }
