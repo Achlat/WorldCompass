@@ -1,14 +1,15 @@
 <?php
-//  Site config 
-define('SITE_URL',   'http://localhost/ecommerce');
-define('SITE_NAME',  'World Compass');
-define('CURRENCY',   'FCFA');
+//  Site config
+define('SITE_URL',  rtrim(getenv('SITE_URL') ?: 'http://localhost/ecommerce', '/'));
+define('SITE_NAME', 'World Compass');
+define('CURRENCY',  'FCFA');
 
-//  Database 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'ecommerce');
+//  Database (Railway injecte MYSQL_HOST, MYSQL_USER, etc.)
+define('DB_HOST', getenv('MYSQL_HOST')     ?: (getenv('DB_HOST') ?: 'localhost'));
+define('DB_USER', getenv('MYSQL_USER')     ?: (getenv('DB_USER') ?: 'root'));
+define('DB_PASS', getenv('MYSQL_PASSWORD') ?: (getenv('DB_PASS') ?: ''));
+define('DB_NAME', getenv('MYSQL_DATABASE') ?: (getenv('DB_NAME') ?: 'ecommerce'));
+define('DB_PORT', (int)(getenv('MYSQL_PORT') ?: 3306));
 
 //  Session start
 if (session_status() === PHP_SESSION_NONE) {
@@ -116,7 +117,7 @@ function db(): PDO {
     if ($pdo === null) {
         try {
             $pdo = new PDO(
-                "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4",
+                "mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";charset=utf8mb4",
                 DB_USER, DB_PASS,
                 [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
