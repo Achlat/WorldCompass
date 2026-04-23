@@ -12,7 +12,7 @@ if (getenv('SITE_URL')) {
     define('SITE_URL', $protocol . '://' . $host . $basePath);
     unset($protocol, $host, $docRoot, $appRoot, $basePath);
 } else {
-    define('SITE_URL', 'http://localhost/ecommerce');
+    define('SITE_URL', 'http://worldcompassafric.com');
 }
 define('SITE_NAME', 'World Compass');
 define('CURRENCY',  'FCFA');
