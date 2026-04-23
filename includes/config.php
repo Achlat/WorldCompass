@@ -1,6 +1,19 @@
 <?php
-//  Site config
-define('SITE_URL',  rtrim(getenv('SITE_URL') ?: 'http://localhost/ecommerce', '/'));
+//  Site config — auto-détecte l'URL de base (fonctionne en local et sur tout hébergement)
+if (getenv('SITE_URL')) {
+    define('SITE_URL', rtrim(getenv('SITE_URL'), '/'));
+} elseif (isset($_SERVER['HTTP_HOST'])) {
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    $host     = $_SERVER['HTTP_HOST'];
+    $docRoot  = realpath($_SERVER['DOCUMENT_ROOT'] ?? '');
+    $appRoot  = realpath(__DIR__ . '/..');
+    $basePath = ($docRoot && $appRoot) ? str_replace($docRoot, '', $appRoot) : '/ecommerce';
+    $basePath = rtrim(str_replace('\\', '/', $basePath), '/');
+    define('SITE_URL', $protocol . '://' . $host . $basePath);
+    unset($protocol, $host, $docRoot, $appRoot, $basePath);
+} else {
+    define('SITE_URL', 'http://localhost/ecommerce');
+}
 define('SITE_NAME', 'World Compass');
 define('CURRENCY',  'FCFA');
 
