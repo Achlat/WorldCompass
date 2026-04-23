@@ -136,10 +136,27 @@ if (backBtn) {
 }
 
 // ── Mobile menu ────────────────────────────────────────────
-const mobBtn = document.getElementById('mobMenuBtn');
-const catNav = document.getElementById('catNav');
-if (mobBtn && catNav) {
-  mobBtn.addEventListener('click', () => catNav.classList.toggle('mob-open'));
+const mobBtn       = document.getElementById('mobMenuBtn');
+const mobileNav    = document.getElementById('mobileNav');
+const mobIcoMenu   = document.getElementById('mobIcoMenu');
+const mobIcoClose  = document.getElementById('mobIcoClose');
+const mobMenuLabel = document.getElementById('mobMenuLabel');
+if (mobBtn && mobileNav) {
+  mobBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = mobileNav.classList.toggle('open');
+    if (mobIcoMenu)  mobIcoMenu.style.display  = open ? 'none'  : '';
+    if (mobIcoClose) mobIcoClose.style.display = open ? ''      : 'none';
+    if (mobMenuLabel) mobMenuLabel.textContent  = open ? 'Fermer' : 'Menu';
+  });
+  document.addEventListener('click', e => {
+    if (!mobileNav.contains(e.target) && !mobBtn.contains(e.target)) {
+      mobileNav.classList.remove('open');
+      if (mobIcoMenu)  mobIcoMenu.style.display  = '';
+      if (mobIcoClose) mobIcoClose.style.display = 'none';
+      if (mobMenuLabel) mobMenuLabel.textContent  = 'Menu';
+    }
+  });
 }
 
 // ── Animate numbers on scroll ──────────────────────────────
