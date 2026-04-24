@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="auth-wrap">
   <div class="auth-card" style="max-width:520px">
-    <div class="auth-logo"><?= h(setting('site_name',SITE_NAME)) ?></div>
+    <div class="auth-logo"><img src="<?= SITE_URL ?>/assets/images/logo.jpg" alt="<?= h(setting('site_name',SITE_NAME)) ?>" style="height:72px;width:auto;border-radius:12px;margin:0 auto .75rem;display:block"></div>
     <p class="auth-subtitle">Créer votre compte gratuitement</p>
 
     <?php if ($errors): ?>

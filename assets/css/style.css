@@ -100,14 +100,9 @@ input, select, textarea { font-family: inherit; }
   flex-shrink: 0;
   text-decoration: none;
 }
-.logo-icon { font-size: 1.6rem; }
-.logo-text {
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.5px;
-}
-.logo-text span { color: var(--accent); }
+.logo-img { height: 52px; width: auto; object-fit: contain; border-radius: 8px; display: block; }
+.footer-logo-img { height: 64px; width: auto; object-fit: contain; border-radius: 10px; margin-bottom: .75rem; display: block; }
+@media (max-width: 680px) { .logo-img { height: 40px; } }
 
 /* Search */
 .search-form { flex: 1; max-width: 600px; }

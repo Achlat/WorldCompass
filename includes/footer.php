@@ -5,7 +5,7 @@
   <div class="footer-top">
 
     <div class="footer-col">
-      <div class="footer-logo"><?= h(setting('site_name', SITE_NAME)) ?></div>
+      <a href="<?= SITE_URL ?>"><img src="<?= SITE_URL ?>/assets/images/logo.jpg" alt="<?= h(setting('site_name', SITE_NAME)) ?>" class="footer-logo-img"></a>
       <p class="footer-tagline"><?= h(setting('site_tagline','Votre destination shopping mondiale')) ?></p>
       <div class="footer-social">
         <a href="#" class="social-btn">Facebook</a>

@@ -12,6 +12,7 @@ $search   = h($_GET['q'] ?? '');
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title><?= isset($pageTitle) ? h($pageTitle).' – '.$siteName : $siteName ?></title>
 <meta name="description" content="<?= isset($pageDesc) ? h($pageDesc) : 'Votre boutique en ligne – '.$siteName ?>">
+<link rel="icon" type="image/jpeg" href="<?= SITE_URL ?>/assets/images/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/style.css">
@@ -23,7 +24,7 @@ $search   = h($_GET['q'] ?? '');
   <div class="header-inner">
     <!-- Logo -->
     <a href="<?= SITE_URL ?>" class="logo">
-      <span class="logo-text"><?= $siteName ?></span>
+      <img src="<?= SITE_URL ?>/assets/images/logo.jpg" alt="<?= h($siteName) ?>" class="logo-img">
     </a>
 
     <!-- Search -->
