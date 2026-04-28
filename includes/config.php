@@ -18,7 +18,7 @@ define('SITE_NAME', 'World Compass');
 define('CURRENCY',  'FCFA');
 
 //  Database
-define('DB_HOST', getenv('MYSQL_HOST')     ?: (getenv('DB_HOST') ?: '127.0.0.1'));
+define('DB_HOST', getenv('MYSQL_HOST')     ?: (getenv('DB_HOST') ?: 'localhost'));
 define('DB_USER', getenv('MYSQL_USER')     ?: (getenv('DB_USER') ?: 'world2784361'));
 define('DB_PASS', getenv('MYSQL_PASSWORD') ?: (getenv('DB_PASS') ?: 'Achiraf123@'));
 define('DB_NAME', getenv('MYSQL_DATABASE') ?: (getenv('DB_NAME') ?: 'world2784361'));
